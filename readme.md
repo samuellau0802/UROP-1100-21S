@@ -88,3 +88,65 @@
 1. Improvements on Topic Classification
 2. Estimate testing time and the cost of SageMaker
 3. Find Dataset with multiple sources and find the source bias
+
+### **Progress:**
+1. **Estimated cost of Sagemaker**
+    - 41 USD for 24-7 Deployment (2 cpu, 4 gb ram)
+2. **Topic Classification**
+    - BlazingText Algorithm
+    - Switch to SVM for testing
+3. **Prediction Time**
+    - 85 sec for 130k 800-word news
+    - ~0.0007 sec for an article (?)
+4. **Found Dataset**
+    -[143000 articles from 15 American Publication](https://www.kaggle.com/datasets/snapcrack/all-the-news)
+    
+5. **Media Bias**
+    - Media Bias Chart: Need license
+    - [AllSides](https://www.allsides.com/media-bias/ratings)
+    - Scrap media bias based on the input media (10 sec for 15 media)
+    - Flow:
+        - User enter webpage
+        - Determine the media and scrap the content
+        - Topic classification and get media bias (Total: <1 sec)
+
+5. **Exploration**
+    - After seperating their bias and classify topics
+    - Wordcloud on left bias and right bias
+
+### **Questions**
+1. Content Bias: what models should I use? Should I capture words?
+    - Wordcloud performance
+2. Scalability:
+    - for politics, we are seperating left or right.
+    ` Other topics? sperating in terms of agree or disagree a certain topic? 
+
+---
+
+## Week 4,5 (7/4 - 21/4)
+
+### **To-Do:**
+1. Research
+2. Design Flow
+
+### Research Findings:
+1. [Predicting the Political Ideology of News Articles](https://arxiv.org/pdf/2010.05338.pdf)
+    - Use **LSTM** and **BERT** to predict the political bias
+    - To remove media bias: 
+        - **Adversarial Adaptation** (minimize the loss for both label predictor and media classifier)
+        - **Triplet Loss Pre-training** (anchor, positive: *different source, same ideology*, negative: *same source, different ideology*)
+
+2. [biased-sents-annotation](https://github.com/skymoonlight/biased-sents-annotation)
+    - [source](https://aclanthology.org/2020.lrec-1.184.pdf)
+    - a dataset that includes labelled article bias and sentence bias
+    - limitation: only covers 4 events
+
+3. [Political Depolarization of News Articles Using Attribute-aware Word Embeddings](https://arxiv.org/pdf/2101.01391.pdf)
+    - **polarity of the word**: distance between its embeddings in different idelogy attributes
+    - replace the polarized word to another word
+
+### Flow:
+![Flow](flow.png)
+
+### Test:
+1. **Semantic Search**
