@@ -150,3 +150,35 @@
 
 ### Test:
 1. **Semantic Search**
+---
+
+## Week 6: (21/4-28/4)
+
+### Progress:
+1. Try finding the polarity of words using the below method
+[Political Depolarization of News Articles Using Attribute-aware Word Embeddings](https://arxiv.org/pdf/2101.01391.pdf)
+    - **polarity of the word**: distance between its embeddings in different idelogy attributes
+2. **Problems:**
+    - some not-that-frequency words also appear
+    - result not that apparent
+    - visualization of embeddings: learnt the writing style(?)
+    - misunderstand paper?
+
+### To-do:
+1. finish article bias
+2. finish remaining flow
+3. start report
+---
+
+## Week 6: (28/4-5/5)
+
+### Progress: 
+1. Used [Movie review data with subjective/objective label](https://www.cs.cornell.edu/people/pabo/movie-review-data/) to train a BERT model and predict the subjectivity of a new article
+    - [paper: Polarity and Subjectivity Detection with Multitask Learning and BERT Embedding](https://arxiv.org/pdf/2201.05363.pdf)
+
+2. Whole Flow of the bias detection part
+
+3. Report
+
+### To-do:
+1. distribution of 
